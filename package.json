@@ -1,0 +1,13 @@
+{
+  "name": "serverless-aws-pseudo-parameters",
+  "version": "0.0.1",
+  "devDependencies": {},
+  "license": "MIT",
+  "repository": {
+    "git": "https://github.com/svdgraaf/github-codebuild-webhook"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "lodash": "^4.13.1"
+  }
+}
