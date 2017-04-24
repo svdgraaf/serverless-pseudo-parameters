@@ -4,7 +4,7 @@
   "devDependencies": {},
   "license": "MIT",
   "repository": {
-    "git": "https://github.com/svdgraaf/github-codebuild-webhook"
+    "git": "https://github.com/svdgraaf/serverless-aws-pseudo-parameters"
   },
   "main": "lib/index.js",
   "dependencies": {
