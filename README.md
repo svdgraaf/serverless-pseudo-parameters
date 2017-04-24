@@ -1,13 +1,25 @@
 Serverless AWS Pseudo Parameters
 --------------------------------
 
-Currently, it's impossible (or at least, very hard) to use the CloudFormation Pseudo Parameters in your `serverless.yml`. This plugin fixes that.
-You can now use #{AWS::AccountId} etc in any of your config strings, and this plugin replaces those values with the proper pseudo parameter fn::sub function.
+Currently, it's impossible (or at least, very hard) to use the [CloudFormation Pseudo Parameters](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.html) in your `serverless.yml`.
 
+This plugin fixes that.
 
+You can now use `#{AWS::AccountId}` etc. in any of your config strings, and this plugin replaces those values with the proper pseudo parameter `Fn::Sub` CloudFormation function.
 
-Examples
+Installation
+-----
+Install the package with npm: `npm install serverless-aws-pseudo-parameters`, and add it to your `serverless.yml` plugins list:
+
+```
+plugins:
+  - serverless-aws-pseudo-parameters
+```
+
+Usage
 --------
+Add one of the pseudo parameters to any resource parameter, and it will be replaced during deployment. Mind you to replace the default `${}` with a `#{}`. So `${AWS::AccountId}`, becomes: `#{AWS::AccountId}` etc.
+
 For example, this configuration will create a bucket with your account id appended to the bucket name:
 
 ```
