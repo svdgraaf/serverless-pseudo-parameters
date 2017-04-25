@@ -1,10 +1,10 @@
 {
-  "name": "serverless-aws-pseudo-parameters",
-  "version": "0.0.2",
+  "name": "serverless-pseudo-parameters",
+  "version": "0.1.2",
   "devDependencies": {},
   "license": "MIT",
   "repository": {
-    "git": "https://github.com/svdgraaf/serverless-aws-pseudo-parameters"
+    "git": "https://github.com/svdgraaf/serverless-pseudo-parameters"
   },
   "main": "lib/index.js",
   "dependencies": {
