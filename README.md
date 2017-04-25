@@ -9,11 +9,11 @@ You can now use `#{AWS::AccountId}` etc. in any of your config strings, and this
 
 Installation
 -----
-Install the package with npm: `npm install serverless-aws-pseudo-parameters`, and add it to your `serverless.yml` plugins list:
+Install the package with npm: `npm install serverless-pseudo-parameters`, and add it to your `serverless.yml` plugins list:
 
 ```
 plugins:
-  - serverless-aws-pseudo-parameters
+  - serverless-pseudo-parameters
 ```
 
 Usage
@@ -26,7 +26,7 @@ For example, this configuration will create a bucket with your account id append
 service: users-bucket-thingy
 
 plugins:
-  - serverless-aws-pseudo-parameters
+  - serverless-pseudo-parameters
 
 functions:
   users:
@@ -54,7 +54,7 @@ Or use it to generate Arn's, for example for [Step Functions](https://www.npmjs.
 service: foobar-handler
 
 plugins:
-  - serverless-aws-pseudo-parameters
+  - serverless-pseudo-parameters
 
 functions:
   foobar-baz:
