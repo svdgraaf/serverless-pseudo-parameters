@@ -17,7 +17,7 @@ plugins:
 ```
 
 Usage
---------
+-----
 Add one of the pseudo parameters to any resource parameter, and it will be replaced during deployment. Mind you to replace the default `${}` with a `#{}`. So `${AWS::AccountId}`, becomes: `#{AWS::AccountId}` etc.
 
 For example, this configuration will create a bucket with your account id appended to the bucket name:
@@ -37,7 +37,18 @@ functions:
           event: s3:ObjectRemoved:*
 ```
 
-Or is it to generate Arn's for Step Functions:
+The output in the cloudformation template will look something like this:
+
+```
+"Type": "AWS::S3::Bucket",
+"Properties": {
+  "BucketName": {
+    "Fn::Sub": "photos-${AWS::AccountId}"
+  },
+}
+```
+
+Or use it to generate Arn's, for example for [Step Functions](https://www.npmjs.com/package/serverless-step-functions):
 
 ```
 service: foobar-handler
@@ -60,15 +71,4 @@ stepFunctions:
             Type: Task
             Resource: "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-foobar-baz"
             End: true
-```
-
-The output in the cloudformation template will look something like this:
-
-```
-"Type": "AWS::S3::Bucket",
-"Properties": {
-  "BucketName": {
-    "Fn::Sub": "photos-${AWS::AccountId}"
-  },
-}
 ```
