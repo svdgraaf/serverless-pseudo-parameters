@@ -5,13 +5,13 @@ Currently, it's impossible (or at least, very hard) to use the [CloudFormation P
 
 This plugin fixes that.
 
-You can now use `#{AWS::AccountId}` etc. in any of your config strings, and this plugin replaces those values with the proper pseudo parameter `Fn::Sub` CloudFormation function.
+You can now use `#{AWS::AccountId}`, `#{AWS::Region}`, etc. in any of your config strings, and this plugin replaces those values with the proper pseudo parameter `Fn::Sub` CloudFormation function.
 
 Installation
 -----
 Install the package with npm: `npm install serverless-pseudo-parameters`, and add it to your `serverless.yml` plugins list:
 
-```
+```yaml
 plugins:
   - serverless-pseudo-parameters
 ```
@@ -22,7 +22,7 @@ Add one of the pseudo parameters to any resource parameter, and it will be repla
 
 For example, this configuration will create a bucket with your account id appended to the bucket name:
 
-```
+```yaml
 service: users-bucket-thingy
 
 plugins:
@@ -39,7 +39,7 @@ functions:
 
 The output in the cloudformation template will look something like this:
 
-```
+```json
 "Type": "AWS::S3::Bucket",
 "Properties": {
   "BucketName": {
@@ -50,7 +50,7 @@ The output in the cloudformation template will look something like this:
 
 Or use it to generate Arn's, for example for [Step Functions](https://www.npmjs.com/package/serverless-step-functions):
 
-```
+```yaml
 service: foobar-handler
 
 plugins:
@@ -71,4 +71,12 @@ stepFunctions:
             Type: Task
             Resource: "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-foobar-baz"
             End: true
+```
+
+The plugin also automatically replace _hardcoded_ region in `serverless.yml`. This feature can be disabled using:
+
+```yaml
+custom:
+    pseudoParameters:
+        skipRegionReplace: true
 ```
