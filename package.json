@@ -7,8 +7,5 @@
     "git": "https://github.com/svdgraaf/serverless-pseudo-parameters"
   },
   "main": "lib/index.js",
-  "dependencies": {
-    "lodash": "^4.13.1",
-    "chalk": "^1.1.1"
-  }
+  "dependencies": {}
 }
