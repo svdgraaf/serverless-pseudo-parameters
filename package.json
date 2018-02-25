@@ -4,7 +4,8 @@
   "devDependencies": {},
   "license": "MIT",
   "repository": {
-    "git": "https://github.com/svdgraaf/serverless-pseudo-parameters"
+    "type": "git",
+    "url": "https://github.com/svdgraaf/serverless-pseudo-parameters"
   },
   "main": "lib/index.js",
   "dependencies": {}
