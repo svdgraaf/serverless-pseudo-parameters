@@ -80,3 +80,18 @@ custom:
     pseudoParameters:
         skipRegionReplace: true
 ```
+
+Other References
+----------------
+You can also ref other resources within your template, for this, set the `allowReferences` variable:
+
+```yaml
+custom:
+  pseudoParameters:
+    allowReferences: true
+```
+
+Which enables:
+
+- using `#{MyResource}` to be rewritten to `${MyResource}`, which is roughly equivalent to `{"Ref": "MyResource"}`
+- using `#{MyResource.Arn}` to be rewritten to `${MyResource.Arn}`, which is roughly equivalent to `{"Fn::GetAtt": ["MyResource", "Arn"]}`.
