@@ -81,8 +81,8 @@ custom:
         skipRegionReplace: true
 ```
 
-Other References
-----------------
+Reference other resources
+-------------------------
 You can also ref other resources within your template, for this, set the `allowReferences` variable:
 
 ```yaml
