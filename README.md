@@ -22,6 +22,9 @@ Usage
 -----
 Add one of the pseudo parameters to any resource parameter, and it will be replaced during deployment. Mind you to replace the default `${}` with a `#{}`. So `${AWS::AccountId}`, becomes: `#{AWS::AccountId}` etc.
 
+- using `#{MyResource}` to be rewritten to `${MyResource}`, which is roughly equivalent to `{"Ref": "MyResource"}`
+- using `#{MyResource.Arn}` to be rewritten to `${MyResource.Arn}`, which is roughly equivalent to `{"Fn::GetAtt": ["MyResource", "Arn"]}`.
+
 For example, this configuration will create a bucket with your account id appended to the bucket name:
 
 ```yaml
@@ -85,6 +88,8 @@ custom:
     skipRegionReplace: true
 ```
 
+Disable referencing other resources
+-----------------------------------
 You can also disable the referencing of internal resources:
 
 ```yaml
@@ -92,18 +97,3 @@ custom:
   pseudoParameters:
     allowReferences: false
 ```
-
-Reference other resources
--------------------------
-You can also ref other resources within your template, for this, set the `allowReferences` variable:
-
-```yaml
-custom:
-  pseudoParameters:
-    allowReferences: true
-```
-
-Which enables:
-
-- using `#{MyResource}` to be rewritten to `${MyResource}`, which is roughly equivalent to `{"Ref": "MyResource"}`
-- using `#{MyResource.Arn}` to be rewritten to `${MyResource.Arn}`, which is roughly equivalent to `{"Fn::GetAtt": ["MyResource", "Arn"]}`.
