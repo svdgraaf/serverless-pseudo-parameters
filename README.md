@@ -80,12 +80,12 @@ stepFunctions:
 
 Properties
 ==========
-The plugin also automatically replace _hardcoded_ region in `serverless.yml`. This feature can be disabled using:
+The plugin used to automatically replace _hardcoded_ regions in `serverless.yml` in previous releases. This not done anymore by default. This behaviour can enabled again by using:
 
 ```yaml
 custom:
   pseudoParameters:
-    skipRegionReplace: true
+    skipRegionReplace: false
 ```
 
 Disable referencing other resources
