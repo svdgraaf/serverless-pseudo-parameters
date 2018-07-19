@@ -22,6 +22,9 @@ Usage
 -----
 Add one of the pseudo parameters to any resource parameter, and it will be replaced during deployment. Mind you to replace the default `${}` with a `#{}`. So `${AWS::AccountId}`, becomes: `#{AWS::AccountId}` etc.
 
+- using `#{MyResource}` to be rewritten to `${MyResource}`, which is roughly equivalent to `{"Ref": "MyResource"}`
+- using `#{MyResource.Arn}` to be rewritten to `${MyResource.Arn}`, which is roughly equivalent to `{"Fn::GetAtt": ["MyResource", "Arn"]}`.
+
 For example, this configuration will create a bucket with your account id appended to the bucket name:
 
 ```yaml
@@ -77,14 +80,16 @@ stepFunctions:
 
 Properties
 ==========
-The plugin also automatically replace _hardcoded_ region in `serverless.yml`. This feature can be disabled using:
+The plugin used to automatically replace _hardcoded_ regions in `serverless.yml` in previous releases. This not done anymore by default. This behaviour can enabled again by using:
 
 ```yaml
 custom:
   pseudoParameters:
-    skipRegionReplace: true
+    skipRegionReplace: false
 ```
 
+Disable referencing other resources
+-----------------------------------
 You can also disable the referencing of internal resources:
 
 ```yaml
