@@ -7,6 +7,8 @@ This plugin fixes that.
 
 You can now use `#{AWS::AccountId}`, `#{AWS::Region}`, etc. in any of your config strings, and this plugin replaces those values with the proper pseudo parameter `Fn::Sub` CloudFormation function.
 
+You can also use any other CloudFormation resource id as a reference, eg `#{myAwesomeResource}`, will replace it with a reference to that resource. `#{myAwesomeResource.property}` works as well.
+
 Installation
 -----
 Install the package with npm: `npm install serverless-pseudo-parameters`, and add it to your `serverless.yml` plugins list:
@@ -73,10 +75,20 @@ stepFunctions:
             End: true
 ```
 
+Properties
+==========
 The plugin also automatically replace _hardcoded_ region in `serverless.yml`. This feature can be disabled using:
 
 ```yaml
 custom:
-    pseudoParameters:
-        skipRegionReplace: true
+  pseudoParameters:
+    skipRegionReplace: true
+```
+
+You can also disable the referencing of internal resources:
+
+```yaml
+custom:
+  pseudoParameters:
+    allowReferences: false
 ```
