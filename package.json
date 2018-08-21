@@ -10,8 +10,8 @@
     "url": "https://github.com/svdgraaf/serverless-pseudo-parameters"
   },
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "jest --env node",
+    "test:watch": "jest --env node --watch"
   },
   "main": "lib/index.js",
   "dependencies": {}
