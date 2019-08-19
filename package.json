@@ -2,7 +2,7 @@
   "name": "serverless-pseudo-parameters",
   "version": "2.4.0",
   "devDependencies": {
-    "jest": "^24.8.0"
+    "jest": "^24.9.0"
   },
   "license": "MIT",
   "repository": {
