@@ -98,7 +98,7 @@ custom:
     allowReferences: false
 ```
 
-Escpaing tokens
+Escaping tokens
 -----------------------------------
 You can prevent tokens from being replaced by escaping with the `@` character after the token's hash character
 ```yaml
