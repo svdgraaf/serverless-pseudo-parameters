@@ -110,5 +110,3 @@ DynamoDBInputS3OutputHive:
         StringValue: "#@{myOutputS3Loc}/#@{format(@scheduledStartTime, 'YYYY-MM-dd-HH-mm-ss')}"
 
 ```
-
-
