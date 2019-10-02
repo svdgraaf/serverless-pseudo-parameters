@@ -107,7 +107,7 @@ DynamoDBInputS3OutputHive:
   Properties:
   	PipelineObjects:
   	  - Key: "directoryPath"
-		StringValue: "#@{myOutputS3Loc}/#@{format(@scheduledStartTime, 'YYYY-MM-dd-HH-mm-ss')}"
+        StringValue: "#@{myOutputS3Loc}/#@{format(@scheduledStartTime, 'YYYY-MM-dd-HH-mm-ss')}"
 
 ```
 
