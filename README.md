@@ -97,3 +97,18 @@ custom:
   pseudoParameters:
     allowReferences: false
 ```
+
+Escpaing tokens
+-----------------------------------
+You can prevent tokens from being replaced by escaping with the `@` character after the token's hash character
+```yaml
+DynamoDBInputS3OutputHive: 
+  Type: AWS::DataPipeline::Pipeline
+  Properties:
+  	PipelineObjects:
+  	  - Key: "directoryPath"
+		StringValue: "#@{myOutputS3Loc}/#@{format(@scheduledStartTime, 'YYYY-MM-dd-HH-mm-ss')}"
+
+```
+
+
