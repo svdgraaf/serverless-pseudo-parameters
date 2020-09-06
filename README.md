@@ -102,7 +102,7 @@ Escaping tokens
 -----------------------------------
 You can prevent tokens from being replaced by escaping with the `@` character after the token's hash character
 ```yaml
-DynamoDBInputS3OutputHive: 
+DynamoDBInputS3OutputHive:
   Type: AWS::DataPipeline::Pipeline
   Properties:
   	PipelineObjects:

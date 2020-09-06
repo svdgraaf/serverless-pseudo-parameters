@@ -1,8 +1,8 @@
 language: node_js
 node_js:
-  - "7"
-  - "8"
-  - "lts/*"
+  - '7'
+  - '8'
+  - 'lts/*'
 
 install:
   - npm install
@@ -12,4 +12,4 @@ script:
 
 cache:
   directories:
-    - "node_modules"
+    - 'node_modules'

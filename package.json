@@ -2,7 +2,8 @@
   "name": "serverless-pseudo-parameters",
   "version": "2.5.0",
   "devDependencies": {
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "prettier": "^2.1.1"
   },
   "license": "MIT",
   "repository": {
@@ -11,7 +12,8 @@
   },
   "scripts": {
     "test": "jest --env node",
-    "test:watch": "jest --env node --watch"
+    "test:watch": "jest --env node --watch",
+    "format": "prettier --write --ignore-path .gitignore '**/*.{css,html,js,json}'"
   },
   "main": "lib/index.js",
   "dependencies": {}
