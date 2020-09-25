@@ -1,6 +1,15 @@
 Serverless AWS Pseudo Parameters
 --------------------------------
 
+DEPRECATED
+----------
+Please upgrade to Serverless Framework 2.3.0, this is now supported natively.
+
+Below is the legacy readme for reference:
+
+Original Readme
+---------------
+
 Currently, it's impossible (or at least, very hard) to use the [CloudFormation Pseudo Parameters](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.html) in your `serverless.yml`.
 
 This plugin fixes that.
