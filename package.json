@@ -14,5 +14,7 @@
     "test:watch": "jest --env node --watch"
   },
   "main": "lib/index.js",
-  "dependencies": {}
+  "peerDependencies": {
+    "serverless": "1 || 2"
+  }
 }
