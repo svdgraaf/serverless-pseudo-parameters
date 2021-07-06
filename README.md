@@ -1,14 +1,12 @@
-Serverless AWS Pseudo Parameters
---------------------------------
+## Serverless AWS Pseudo Parameters
 
-DEPRECATED
-----------
+## DEPRECATED
+
 Please upgrade to Serverless Framework 2.3.0, this is now supported natively.
 
 Below is the legacy readme for reference:
 
-Original Readme
----------------
+## Original Readme
 
 Currently, it's impossible (or at least, very hard) to use the [CloudFormation Pseudo Parameters](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.html) in your `serverless.yml`.
 
@@ -18,8 +16,8 @@ You can now use `#{AWS::AccountId}`, `#{AWS::Region}`, etc. in any of your confi
 
 You can also use any other CloudFormation resource id as a reference, eg `#{myAwesomeResource}`, will replace it with a reference to that resource. `#{myAwesomeResource.property}` works as well.
 
-Installation
------
+## Installation
+
 Install the package with npm: `npm install serverless-pseudo-parameters`, and add it to your `serverless.yml` plugins list:
 
 ```yaml
@@ -27,8 +25,8 @@ plugins:
   - serverless-pseudo-parameters
 ```
 
-Usage
------
+## Usage
+
 Add one of the pseudo parameters to any resource parameter, and it will be replaced during deployment. Mind you to replace the default `${}` with a `#{}`. So `${AWS::AccountId}`, becomes: `#{AWS::AccountId}` etc.
 
 - using `#{MyResource}` to be rewritten to `${MyResource}`, which is roughly equivalent to `{"Ref": "MyResource"}`
@@ -78,17 +76,17 @@ stepFunctions:
   stateMachines:
     foobar:
       definition:
-        Comment: "Foo!"
+        Comment: 'Foo!'
         StartAt: bar
         States:
           bar:
             Type: Task
-            Resource: "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-foobar-baz"
+            Resource: 'arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-foobar-baz'
             End: true
 ```
 
-Properties
-==========
+# Properties
+
 The plugin used to automatically replace _hardcoded_ regions in `serverless.yml` in previous releases. This not done anymore by default. This behaviour can enabled again by using:
 
 ```yaml
@@ -97,8 +95,8 @@ custom:
     skipRegionReplace: false
 ```
 
-Disable referencing other resources
------------------------------------
+## Disable referencing other resources
+
 You can also disable the referencing of internal resources:
 
 ```yaml
@@ -107,11 +105,12 @@ custom:
     allowReferences: false
 ```
 
-Escaping tokens
------------------------------------
+## Escaping tokens
+
 You can prevent tokens from being replaced by escaping with the `@` character after the token's hash character
+
 ```yaml
-DynamoDBInputS3OutputHive: 
+DynamoDBInputS3OutputHive:
   Type: AWS::DataPipeline::Pipeline
   Properties:
   	PipelineObjects:
