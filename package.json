@@ -1,6 +1,9 @@
 {
   "name": "serverless-pseudo-parameters",
   "version": "2.5.0",
+  "dependencies": {
+    "semver": "^7.3.5"
+  },
   "devDependencies": {
     "jest": "^24.9.0"
   },

@@ -2,9 +2,12 @@
 
 ## DEPRECATED
 
-Please upgrade to Serverless Framework 2.3.0, this is now supported natively.
+All functionalities as provided by this plugin are now supported by Serverless Framework natively:
 
-Below is the legacy readme for reference:
+- With version v2.3.0 the default variable regex was updated to not collide with AWS pseudo parameters
+- With version v2.50.0, new variables sources `${aws:accountId}` and `${aws:region}` were introduced, which can be used in properties where CloudFormation pseudo paramaters cannot be used. Please use them instead of `#{AWS::...}` format as supported by this plugin
+
+_Below is the legacy readme for reference:_
 
 ## Original Readme
 
